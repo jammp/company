@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /cache/
+Disallow: /data/
+Disallow: /include/
+Disallow: /install/
+Disallow: /languages/
+Disallow: /theme/
+Disallow: /upgrade/
+Disallow: /captcha.php

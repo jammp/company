@@ -1,0 +1,26 @@
++-----------------------------------------------------------------------------
+| 复制以下代码到你的配置文件中对应主机里加入就可，一般加到PHP配置的那段上面
++-----------------------------------------------------------------------------
+
+# main
+rewrite ^([^\.]*)/index\.html$    $1/index.php last;
+rewrite ^([^\.]*)/sitemap\.xml$    $1/sitemap.php last;
+rewrite ^([^\.]*)/(404|301)\.html$    $2.html last;
+
+# news
+rewrite ^([^\.]*)/news(/o)*([0-9]*)$       $1/article_category.php?page=$3   last;
+rewrite ^([^\.]*)/news(/*)([a-z0-9-]*)(/*o*)([0-9]*)$       $1/article_category.php?unique_id=$3&page=$5   last;
+
+rewrite ^([^\.]*)/news/([0-9]+)\.html$       $1/article.php?id=$2&rewrite=1   last;
+rewrite ^([^\.]*)/news/([a-z0-9-]+)/([0-9]+)\.html$       $1/article.php?id=$3&unique_id=$2   last;
+
+# product
+rewrite ^([^\.]*)/product(/o)*([0-9]*)$       $1/product_category.php?page=$3   last;
+rewrite ^([^\.]*)/product(/*)([a-z0-9-]*)(/*o*)([0-9]*)$       $1/product_category.php?unique_id=$3&page=$5   last;
+
+rewrite ^([^\.]*)/product/([0-9]+)\.html$       $1/product.php?id=$2&rewrite=1   last;
+rewrite ^([^\.]*)/product/([a-z0-9-]+)/([0-9]+)\.html$       $1/product.php?id=$3&unique_id=$2   last;
+
+# onepage
+rewrite ^([^\.]*)/([a-z0-9-]+)\.html$       $1/page.php?unique_id=$2   last;
+rewrite ^([^\.]*)/guestbook(/)*([a-z]*)$       $1/guestbook.php?rec=$3   last;
